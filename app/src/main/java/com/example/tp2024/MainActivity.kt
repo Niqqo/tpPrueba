@@ -69,4 +69,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun showMovieDetails(movieTitle: String) {
+        val fragment = MovieDetailFragment()
+        val bundle = Bundle()
+        bundle.putString("movieTitle", movieTitle)
+        fragment.arguments = bundle
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null) // Permite volver al fragmento anterior
+            .commit()
+    }
+
+
 }
